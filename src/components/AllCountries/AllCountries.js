@@ -4,7 +4,6 @@ import { apiURL } from "../../util/api";
 
 import Article from "../Article/Article";
 
-import SeacrhInput from "../SearchCountry/SearchCountry";
 
 export default function Countries() {
     const [countries, setCountries] = useState([]);
@@ -27,7 +26,7 @@ export default function Countries() {
             name: "Antarctic",
         },
     ]
-
+    
     const getAllCountries = async() => {
         try {
             const response = await fetch(`${apiURL}/all`);

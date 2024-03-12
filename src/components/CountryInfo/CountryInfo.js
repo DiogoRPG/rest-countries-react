@@ -14,8 +14,6 @@ export default function CountryInfo() {
 
             const data = await response.json();
             setCountry(data);
-
-            console.log(data)
         } catch (error) {
             console.error(error);
         }
@@ -46,8 +44,14 @@ export default function CountryInfo() {
                     <li>Population: {item.population.toLocaleString()}</li>
                     <li>Region: {item.region}</li>
                     <li>Subregion: {item.subregion}</li>
+                    <li>Currencies: {
+                                  new Intl.ListFormat(undefined, {
+                                  style: "long",
+                                  type: "conjunction",
+                                  }).format(Object.values(item.currencies).map((c) => c.name))
+                                }
+                      </li>
                   </ul>
-    
                   {item.borders && (
                     <>
                       <h3 className="text-gray-900 font-bold text-lg mb-2 dark:text-white">
